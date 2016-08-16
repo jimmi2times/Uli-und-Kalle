@@ -1,0 +1,1086 @@
+/* 
+ * CSS-Stile f�r das Managerb�ro
+ * 27.03.09 
+ * Wenn Dinge nur f�r einzelnen Seiten ben�tigt werden (Kabine, etc.) stehen die in anderen css. Dateien
+ */
+
+/************/
+/* Struktur */
+/************/
+
+body {
+	margin: 0 auto;
+	padding: 0; 
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: Verdana, Arial, Sans-Serif;
+	text-align: left;
+	}
+	
+#page {
+	background-color: #d5d6d7;
+	margin: 0 auto;
+	padding: 0px;
+	width: 950px;
+	border: 15px solid #000;
+	height: 540px;
+	text-align: left;
+	}
+#content {
+	width: 950px;
+	height: 499px;
+	float: left;
+	}
+
+.hidden {
+	display: none;
+	}
+
+.clear {
+	clear:both;
+	}
+
+
+
+/********/
+/* Typo */
+/********/
+
+p, h1, h2, h3, h4, h5, small {
+margin: 5px 15px 5px 5px;
+}
+
+h1 { }
+h2 { }
+h3 {
+	font-size: 1.1em;
+	}
+h4 { }
+
+p {
+	color: #000;
+	padding: 0;
+	margin: 0;
+	}
+	
+
+a {
+	color: #000; 
+	text-decoration: none;
+	font-weight: bold; 
+}
+
+a:hover {
+	color: #000; 
+	background-color: #7fbe47;
+}
+
+.menu a {
+	
+}	
+
+
+
+/**************************/
+/* Header und Footer Men� */
+/**************************/
+
+ul.menu {
+	margin: 0;
+	padding: 0;
+	bottom: 0;
+	left: 20px;
+	width: 90%;
+	}
+	
+ul.menu li {
+	display: inline;
+	margin: 0;
+	margin-left: 10px;
+	}
+	
+ul.menu,
+ul.menu li a {
+	padding: 5px 15px 6px;
+	}
+ul.menu li a {
+	font-size: 1em;
+	color: #7fbe47;
+	background-color: #000;
+	margin: 0;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	}
+	
+ul.footer li a {
+	-moz-border-radius-bottomleft: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+} 
+	
+ul.menu li a:hover {
+	background: #7fbe47;
+	color: #000;
+	text-decoration: none;
+	}
+ul.menu li.current_page_item a,
+ul.menu li.current_page_item a:hover,
+ul.menu li.current_page_ancestor a,
+ul.menu li.current_page_ancestor a:hover {
+	color: #000;
+	background: #7fbe47;
+	text-decoration: none;
+	}
+
+
+
+/*********************************/
+/* Struktur der einzelnen Seiten */
+/* Es gibt mehrere Varianten 	 */
+/*********************************/
+
+/* Ein Sechstel Div Container */
+.einsechstel {
+	float: left; 
+	width: 30%;
+	height: 45%;
+	border: 5px solid;
+}
+
+
+/* Linke Spalte klein, rechte Spalte gro� */
+.LeftColumn {
+	width: 25%;
+	float: left;
+	margin:0;
+	padding: 10px;
+}
+.RightColumnLarge {
+	width: 70%;
+	height: 99.5%;
+	float: right;	
+	overflow: auto;
+	margin: 0;
+	padding: 10px;
+}
+
+
+/* dreispaltig */
+.LeftColumnSmall {
+	width: 18%;
+	float: left;
+	margin:0;
+	padding: 10px;
+}
+.CenterColumn {
+	width: 55%;
+	float: left;
+	margin:0;
+	padding: 10px;
+	height: 99.5%;
+
+}
+
+.RightColumnSmall {
+	width: 18%;
+	float: left;
+	margin:0;
+	padding: 10px;
+}
+
+
+/*************/
+/* Marker    */
+/*************/
+.marker_hidden {
+	margin: 0.9em 0 0 0.2em;
+	float: left;
+	width: 17.19em !important;
+	height: 10.25em !important;
+	position: absolute;
+	border: none;
+	display: none;
+	z-index: 5000;
+}
+
+.marker {
+width: 0;
+height: 0;
+float: left;
+}
+
+
+/***********/
+/* Uli Box */
+/***********/
+
+.ulibox {
+background: url("graphics/transp.png");
+border: 2px solid #7fbe47;
+margin-bottom: 4px;
+float: left;
+width: 98%; 
+font-size: 1.1em;
+}
+
+	.ulibox .headline h3 {
+	margin: 0;
+	padding: 5px;
+	background-color: #7fbe47;	
+	}
+
+	.ulibox .content {
+	padding: 5px;
+	}
+	
+	.ulibox .footer {
+
+	}
+
+.overflow {
+	overflow: auto;
+	max-height: 100px;
+	}
+
+/***********/
+/* Uli Tabelle */
+/***********/
+.ulitable {
+background: url("graphics/transp.png");
+border: 2px solid #7fbe47;
+margin-bottom: 4px;
+xxfloat: left;
+width: 100%; 
+xxfont-size: 1.1em;
+}
+
+	.ulitable th.headline {
+	background-color: #7fbe47;	
+	padding: 5px;
+	color: #fff;
+	}
+
+	.ulitable td.content {
+	padding: 5px;
+	border: 1px solid #7fbe47;
+	}
+
+/****************/
+/* Messages     */
+/****************/
+.message {
+background: url("graphics/transp.png");
+border: 2px solid #7fbe47;
+margin-bottom: 4px;
+float: left;
+width: 98%; 
+font-size: 1.1em;
+}
+
+.unread .head {
+	font-weight:bold;
+	}
+
+.text, .head, .func {
+	padding: 5px;
+	}
+
+.func, .text {
+	border-top: 1px solid #7fbe47;
+	}
+
+
+.message .messagecontent {
+	display: none;
+	}
+	
+.delete {
+	xxbackground: url("graphics/icons/delete.png");
+	background-repeat:no-repeat;
+	xxwidth: 20px;
+	xxheight: 20px;
+	float: left;
+	
+	
+}
+.reply {
+	xxbackground: url("graphics/icons/reply.png");
+	background-repeat:no-repeat;
+	xxwidth: 20px;
+	xxheight: 20px;
+	margin-right: 10px;
+	float: left;
+}
+
+
+/*****************/
+/* TRANSFERMARKT */
+/*****************/
+.auction, .kader-player {
+background: url("graphics/transp.png");
+border: 2px solid #7fbe47;
+margin-bottom: 4px;
+float: left;
+width: 98%; 
+font-size: 1.1em;
+}
+	.auction .player, .kader-player .player {
+	width: 30%;
+	float: left;
+	padding: 5px;
+	}
+	.auction .auctionbet {
+	width: 30%;
+	float: left;
+	padding: 5px;
+	}
+
+	.kader-player .contract {
+	width: 35%;
+	float: left;
+	padding: 5px;
+	}
+
+	.kader-player .actions {
+	width: 25%;
+	float: left;
+	padding: 5px;
+	}
+	
+	.auction .auctionend {
+	width: 10%;
+	float: left;
+	padding: 5px;
+	}
+	
+	.auction .yourbet {
+	width: 22%;
+	float: left;
+	padding: 5px;
+	}
+
+.ueberboten {
+	background: none;
+	background-color: yellow;
+	}
+.hiddenauction {
+	background: none;
+	background-color: #bebebe;
+	}
+
+.topgebot {
+	background: none;
+	background-color: #7fbe47;
+	}	
+
+.formauction {
+	font-size: 1.0em;
+	border: 1px solid #7fbe47;
+}
+
+.jerseynumber {
+	background: url("graphics/icons/trikot.gif");
+	width: 20px;
+	text-align: center;
+	font-familiy: Courier;
+	font-size: 0.9em;
+	float: left;
+	margin-right: 5px;
+	font-weight: bold;
+}
+
+.jerseynumber a:hover {
+	background: none;
+	}
+
+.negotiation {
+	width: 100%;
+	float: left;
+}
+.neg-pic {
+	width: 100px;
+	height: 130px;
+	float: left;
+	}
+.neg-mainbox {
+	float: left;
+	width: 500px;
+	}
+.neg-mainbox .content {
+	padding: 5px;
+	}
+
+/* Marker fuer show und hide */
+.agehide, .positionhide, .teamhide {
+	display:none;
+	}
+
+
+/********************/
+/* FILTER ***********/
+/********************/
+
+.filter {
+background: url("graphics/transp.png");
+border: 2px solid #7fbe47;
+margin-bottom: 4px;
+float: left;
+width: 98%; 
+font-size: 1.1em;
+}
+
+.filterform {
+	font-size: 1.0em;
+}
+
+
+/*********************/
+/* Attention		 */
+/*********************/
+.attention {
+	background-color: #7fbe47;
+	font-weight: bold;
+	}
+
+/*************************/
+/* Playerinfo/Panel		 */
+/*************************/
+
+.ui-tabs .ui-tabs-panel {
+	padding: 1em 0;
+	}
+
+
+.ui-dialog-content {
+	xxbackground: url("graphics/transp.png");
+	border: 1px solid #7fbe47;
+	background: #ddd;
+	}	
+
+.ui-widget-content, .ui-widget-content {
+	background: url("graphics/transp.png");
+	xxborder: 1px solid #7fbe47;
+	xxbackground: #ddd;
+		
+	}
+
+.ui-widget-header {
+	background: #7fbe47;
+	color: #000;
+	border: 0;
+		
+	}
+.playerinfo .name {
+	font-weight: bold;
+	font-size: 1.1em;
+	
+	}
+
+
+.playerinfo .pic {
+	float: left;
+	}
+.playerinfo .content {
+	padding: 5px;
+	float: left;
+	width: 60%;
+	}
+
+.playerinfo .details {
+	margin-top: 5px;
+	}
+
+.playerinfo .details select {
+	width: 98%;
+	font-size: 0.9em;
+	}
+
+/*********************/
+/* Mein Buero		 */
+/*********************/
+
+/* Der Farbwaehler im Einstllungsmen� */
+.ulicolors {
+	margin: 0 auto;	
+	width: 98%;
+	padding: 5px;
+	border: 1px solid black;
+	float: left;
+}
+
+.one_ulicolor {
+	width: 12%;
+	border: 1px solid black;
+	float: left;
+	margin-left: 1%;
+	height: 15px;
+}
+
+.white {background-color: #ffffff;}
+.yellow {background-color: #FFFF00;}
+.red {background-color: #FF0000;}
+.blue {background-color: #0000FF;}
+.green {background-color: #018f51;}
+.brown {background-color: #A52A2A;}
+.black {background-color: #000000;}
+
+/* Schriftfarbe Rot */
+.ColorRed {color: #FF0000;}
+
+
+/****************************/
+/* Kabine                   */
+/****************************/
+.slot { font-weight: bold; border:2px solid #000; background-color:#dddddd; color:#666666; text-align:center; position: absolute;width:120px; height:50px; }
+.player_kabine {background-color:#71b732; padding-left: 3px; border:1px solid #fff; color:#000; text-align:left; width:210px; height:14px; }
+.player_kabine img {width: 0px; height: 0px;}
+.kabine_info {background-color:#71b732; padding-left: 3px; border:1px solid #fff; color:#fff; position: absolute;text-align:left; width:15px; height:16px; };
+
+.slot img {width: 0px; height: 0px;}
+.playerbig img, .playerbig_100 img, .playerbig_75 img, .playerbig_50 img, .playerbig_25 img {width: 38px;height: 50px;float: left;margin-right: 3px;}
+.playerbig_100 {background-color:white; border:2px solid #bbbbbb; color:#000; position: absolute;text-align:left; width:120px; height:50px; }
+.playerbig_75 {background-color:#71b732; border:2px solid #bbbbbb; color:#000; position: absolute;text-align:left; width:120px; height:50px; }
+.playerbig_50 {opacity: 0.7; background-color:yellow; border:2px solid #bbbbbb; color:#000; position: absolute;text-align:left; width:120px; height:50px; }
+.playerbig_25 {opacity: 0.5; background-color:red; border:2px solid #bbbbbb; color:#000; position: absolute;text-align:left; width:120px; height:50px; }
+.player_bench {background-color:#71b732; border:2px solid #000; color:#eeeeee; position: absolute;text-align:left; width:145px; height:15px; }
+.playerbig {border:2px solid #574188; background-color:#fff; position: absolute; width:120px;height: 50px;}
+
+.captain { z-index:95; font-weight: bold; border-left:1px dotted #000; border-top:1px dotted #000;color:#666666; text-align:center; position: absolute;width:20px; height:20px; }
+.player_captain { z-index:96;color: #fff; font-weight: bold; border:2px solid #000; background-color:#71b732; text-align:center; position: absolute; width:20px;height: 20px;}
+
+
+.target_captain {border:2px solid #000; background-color:#cccccc; text-align:center; position: absolute; width:20px;height: 20px;}
+.target {opacity: 0.5;border:2px solid #574188; background-color:#cccccc; position: absolute; width:120px;height: 50px;}
+.target_bench {border:2px solid #000; background-color:#cccccc; text-align:center; position: absolute; width:145px;height: 15px;}
+.target img {width: 38px;height: 50px;float: left;margin-right: 3px;}
+.target_bench img, .player_bench img {width: 0px; height: 0px;}
+
+#workarea {
+    position: relative;
+	width: 920px;
+	height:520px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+#bench {
+	margin-left: 10px;
+	float: left;
+	width: 220px;
+	height: 420px;
+	xxoverflow: auto;
+}
+#control {
+	float: left; 
+	width: 220px;
+	height: 220px; 
+	margin-left: 10px;
+	
+}
+#spielfeld {
+	float: left; 
+	width: 450px;
+	height: 470px; 
+	background-image: url("graphics/kabine/feld.jpg");
+}
+
+#spielfeld .jerseynumber {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 14px;
+	height: 12px;
+	background: #fff;
+	font-size: 0.8em;
+	}
+
+.player_bench .jerseynumber {
+	display: none;
+	}
+
+#control .box {
+	height: 18px;
+	font-size: 1.1em;
+	text-align: center;
+	border: 1px solid #71b732;
+	background-image: url("graphics/transp.png");
+	}
+#control .boxheadline {
+		border: 0;
+		padding: 4px;
+		border: 1px solid #71b732;
+		margin: 0;
+		background-color: #71b732;
+		color: #FFFFFF;
+		font-weight: bold;
+		font-size: 1.0em;
+	}
+		
+.kabine_formation .content {
+	padding: 0;
+	
+	}
+
+.kabine_formation .formation_select {
+	width: 32%;
+	float: left;
+	text-align: center;	
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	
+}
+
+.kabine_formation .formation_select_aktiv {
+	width: 32%;
+	float: left;
+	background: yellow;
+	text-align: center;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.kabine_formation .content p {
+	padding: 3px;
+	}
+.kabine_formation .content a {
+	font-weight: normal;
+	}
+
+
+.kabineinfo {
+	margin-top: 10px;
+	}	
+		
+.kabineinfo .content {
+	XXXheight: 200px;
+	font-size: 0.9em;
+	}
+
+.kabineinfo .pic img {
+	width: 70px;
+	}
+
+
+.kabineinfo .playerinfo .pic {
+	float: left;
+	}
+.kabineinfo .playerinfo .content {
+	padding: 5px;
+	float: left;
+	}
+
+.kabineinfo .playerinfo .details {
+	margin-top: 5px;
+	}
+
+.kabineinfo .playerinfo .details select {
+	width: 98%;
+	font-size: 0.9em;
+	}
+
+
+/**************************/
+/* Journal 				  */
+/**************************/
+
+#journal {
+	font-family: Georgia;
+	font-size: 1.1em;
+	}
+
+#journal.ui-dialog-content {
+	background: #fff;
+	}
+
+.jour-article {
+	height: auto;
+	xxbackground-color: #ddd;
+	float: left;
+	xxwidth: 460px;
+	margin-bottom: 10px;
+	}
+
+.jour-headline {
+	font-family: Georgia;
+	font-size: 1.4em;
+	font-weight: normal;
+	margin: 0;
+	}
+
+.jour-headline-small {
+	font-family: Georgia;
+	font-size: 1.2em;
+	font-weight: normal;
+	margin: 0;
+	}
+	
+.jour-lc {
+	width: 48%;
+	float: left;
+	}	
+	
+.jour-row {
+	width: 450px;
+	float: left;	
+	}
+
+.jour-rc {
+	width: 48%;
+	float: right;	
+	}	
+
+.playertext {
+	float: left;
+	margin-top: 5px;
+	}
+
+.jour-header {
+	background: url('graphics/journal/head.jpg');
+	height: 55px;
+	width: 100%;
+	}
+
+.jour-text {
+	width: 330px;
+	float: left;
+	}		
+
+.jour-pic {
+	padding-top: 5px;
+	width: 110px;
+	float:left;
+	}		
+	
+	
+.jour-bottom-row {
+	font-family: Tahoma;
+	font-size: 1em;
+	xxwidth: 450px;
+	xxheight: 110px;
+	float: left;
+	xxbackground: #ddd;
+	}
+	
+.jour-fc, .jour-sc, .jour-tc {
+	float: left;
+	padding: 2px;
+	xxbackground: #ddd;
+	margin-top: 5px;
+	xxheight: 105px;
+	xxwidth: 31%;
+	}	
+	
+.alleslesen {
+	float: right;
+	margin-right: 10px;
+	}	
+	
+	
+	
+	
+	
+/********** STADION ******/
+
+.stadium .firstrow {
+	width: 900px;
+	height: 200px;
+	margin-left: 25px;
+	margin-top: 20px;
+	}	
+
+.stadium .secondrow {
+	margin-top: 80px;
+	}
+	
+.stadium .box {
+	float: left;
+	margin-left: 20px;
+	height: 150px;
+	width: 130px;
+	}	
+	
+.stadium .box h3 {
+	text-align: center;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #fff;	
+	margin-top: 125px;
+	}	
+	
+.stadium .seats {
+	margin-left: 25px;
+	}	
+	
+.seats {
+	background: url('graphics/stadium/maracana.jpg') ;	
+	}	
+
+.infra {
+	/* http://de.wikipedia.org/w/index.php?title=Datei:Bundesarchiv_B_145_Bild-F079073-0027,_Bonn,_Veranstaltung_auf_dem_M�nsterplatz.jpg&filetimestamp=20081212194933 */	
+	background: url('graphics/stadium/bratwurst.jpg') ;	
+	}	
+
+.stadium .name {
+/* http://commons.wikimedia.org/wiki/File:Allianz_Arena_2005-06-10.jpeg?uselang=de */
+	background: url('graphics/stadium/arena.jpg') ;	
+	}	
+		
+.fans {
+	/* Author Jake Brown http://www.flickr.com/people/7263938@N02 */
+	background: url('graphics/stadium/fans.jpg') ;	
+	}		
+		
+.condition {
+	/* http://de.wikipedia.org/w/index.php?title=Datei:KarLi_Trib�ne.jpg&filetimestamp=20090126180831 */
+	background: url('graphics/stadium/karli.jpg') ;	
+	}
+	
+.stadium .stats {
+	background: url('graphics/stadium/stats.jpg') ;	
+	}			
+	
+.infrastruktur {
+	margin-top: 20px;
+	margin-left: 10px;
+	}	
+	
+.infrastruktur .infrabox {
+	width: 220px;
+	height: 140px;
+	float: left;
+	background: red;
+	margin-left: 10px;
+	margin-top: 10px;
+	}
+
+.infrastruktur .autobahn {
+	background: url('graphics/stadium/infra_autobahn_dark.jpg') ;	
+	}
+/* http://de.wikipedia.org/wiki/Benutzer:Jorges */	
+.infrastruktur .sbahn {
+	background: url('graphics/stadium/infra_sbahn_dark.jpg') ;	
+	}
+.infrastruktur .kinderland {
+	background: url('graphics/stadium/infra_kinderland_dark.jpg') ;	
+	}
+.infrastruktur .merchandising {
+	background: url('graphics/stadium/infra_merch.jpg') ;	
+	}
+.infrastruktur .bier {
+	background: url('graphics/stadium/infra_bier.jpg') ;	
+	}
+.infrastruktur .bratwurst {
+	background: url('graphics/stadium/infra_bratwurst.jpg') ;	
+	}
+.infrastruktur .museum {
+	background: url('graphics/stadium/infra_museum_dark.jpg') ;	
+	}
+.infrastruktur .videowuerfel {
+	background: url('graphics/stadium/infra_videowuerfel_dark.jpg') ;	
+	}
+.infrastruktur .soundsystem {
+	background: url('graphics/stadium/infra_soundsystem_dark.jpg') ;	
+	}
+.infrastruktur .architektur {
+	background: url('graphics/stadium/infra_architektur_dark.jpg') ;	
+	}
+	/* http://de.wikipedia.org/w/index.php?title=Datei:Motor_lublin_protest_kibic�w.jpg&filetimestamp=20070917192718 */
+.infrastruktur .fanprojekt {
+	background: url('graphics/stadium/infra_fanprojekt_dark.jpg');	
+	}
+.infrastruktur .bushaltestelle {
+	background: url('graphics/stadium/infra_bushaltestelle_dark.jpg') ;	
+	}
+
+.infrastruktur .autobahn_aktiv {
+	background: url('graphics/stadium/infra_autobahn.jpg') ;	
+	}
+/* http://de.wikipedia.org/wiki/Benutzer:Jorges */	
+.infrastruktur .sbahn_aktiv {
+	background: url('graphics/stadium/infra_sbahn.jpg') ;	
+	}
+.infrastruktur .kinderland_aktiv {
+	background: url('graphics/stadium/infra_kinderland.jpg') ;	
+	}
+.infrastruktur .museum_aktiv {
+	background: url('graphics/stadium/infra_museum.jpg') ;	
+	}
+.infrastruktur .videowuerfel_aktiv {
+	background: url('graphics/stadium/infra_videowuerfel.jpg') ;	
+	}
+.infrastruktur .soundsystem_aktiv {
+	background: url('graphics/stadium/infra_soundsystem.jpg') ;	
+	}
+.infrastruktur .architektur_aktiv {
+	background: url('graphics/stadium/infra_architektur.jpg') ;	
+	}
+	/* http://de.wikipedia.org/w/index.php?title=Datei:Motor_lublin_protest_kibic�w.jpg&filetimestamp=20070917192718 */
+.infrastruktur .fanprojekt_aktiv {
+	background: url('graphics/stadium/infra_fanprojekt.jpg');	
+	}
+.infrastruktur .bushaltestelle_aktiv {
+	background: url('graphics/stadium/infra_bushaltestelle.jpg') ;	
+	}
+
+.infrastruktur .autobahn:hover {
+	background: url('graphics/stadium/infra_autobahn.jpg') ;	
+	}
+/* http://de.wikipedia.org/wiki/Benutzer:Jorges */	
+.infrastruktur .sbahn:hover {
+	background: url('graphics/stadium/infra_sbahn.jpg') ;	
+	}
+.infrastruktur .kinderland:hover {
+	background: url('graphics/stadium/infra_kinderland.jpg') ;	
+	}
+.infrastruktur .merchandising:hover {
+	background: url('graphics/stadium/infra_merch.jpg') ;	
+	}
+.infrastruktur .bier:hover {
+	background: url('graphics/stadium/infra_bier.jpg') ;	
+	}
+.infrastruktur .bratwurst:hover {
+	background: url('graphics/stadium/infra_bratwurst.jpg') ;	
+	}
+.infrastruktur .museum:hover {
+	background: url('graphics/stadium/infra_museum.jpg') ;	
+	}
+.infrastruktur .videowuerfel:hover {
+	background: url('graphics/stadium/infra_videowuerfel.jpg') ;	
+	}
+.infrastruktur .soundsystem:hover {
+	background: url('graphics/stadium/infra_soundsystem.jpg') ;	
+	}
+.infrastruktur .architektur:hover {
+	background: url('graphics/stadium/infra_architektur.jpg') ;	
+	}
+	/* http://de.wikipedia.org/w/index.php?title=Datei:Motor_lublin_protest_kibic�w.jpg&filetimestamp=20070917192718 */
+.infrastruktur .fanprojekt:hover {
+	background: url('graphics/stadium/infra_fanprojekt.jpg');	
+	}
+.infrastruktur .bushaltestelle:hover {
+	background: url('graphics/stadium/infra_bushaltestelle.jpg') ;	
+	}
+
+
+.infrastruktur button {
+	width: 180px;
+	text-align: center;
+	vertical-align: bottom;
+	margin-left: 20px;
+	margin-top: 110px;
+}
+
+.bier button, .merchandising button, .bratwurst button {
+	margin-top: 95px;
+	}
+
+.infrabox span {
+	font-size: 1.1em;
+	font-color: #000;
+	background: #71b732;
+	padding: 2px; 
+
+}
+
+
+
+/******** REGISTRIEURNG *****/
+.founduli {
+	width: 600px;
+	margin-top: 150px;
+	height: 200px;
+	margin-left: 100px;
+	padding: 5px;
+	}
+.founduli p {
+	padding: 5px;
+	}	
+	
+	
+/*********** STARTSEITE TWITTER ******/
+.really_simple_twitter_widget {
+	list-style-type: none;
+	padding: 0;
+}
+
+.really_simple_twitter_widget li {
+	margin-bottom: 5px;
+}
+
+#twitter_pos {
+	margin-right: 10px;
+	}
+
+.twitter_span  {
+	width: 0px;
+	margin-left: -20px;
+	margin-right: 16px;
+	height: 0px;
+	overflow: hidden;
+	}	
+	
+	
+/* Startseite Endende Verträge */
+.endingContracts {
+	height: 70px;
+	width: 300px;
+	background: #fff;
+	border: 3px solid #000;
+	moz-border-radius-bottomleft: 3px;
+	moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	moz-border-radius-topleft: 3px;
+	moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	position: absolute;
+	top: 120px;
+	margin-left: 590px;	
+	padding: 5px;
+	}
+	
+/***************TRBOX ***************/
+.teamranking {
+	height: 25px;
+	width: 200px;
+	background: #000;
+	border: 3px solid #000;
+	moz-border-radius-bottomleft: 3px;
+	moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	moz-border-radius-topleft: 3px;
+	moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	position: absolute;
+	top: 60px;
+	margin-left: 700px;
+	
+}
+	
+.teamranking span {
+	background: #71b732;
+	height: 21px;
+	display: block;
+	float: left;
+	color: #000;
+	padding-top: 4px;
+	padding-left: 4px;
+	}
+	
+img.icon_injured {
+	width: 11px;
+	height: 11px;
+	}		
+	
+	
+.saveplayer { margin-top: 4px;font-weight: normal; border:1px dotted #000; border:1px dotted #000;color:#666666; text-align:center; width:100px; height:15px; }
+.playerissave { color: #fff; font-weight: bold; border:2px solid #000; background-color:#71b732; text-align:center; width:150px;height: 15px;}
+		
