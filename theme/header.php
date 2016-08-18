@@ -1,6 +1,6 @@
-<?PHP 
+<?PHP
 /* Das ist die Headerdatei fuer jede Uli und Kalle Seite
- * 
+ *
  * 25.03.09
  */
 
@@ -10,9 +10,9 @@ wir probieren mal, das umzubauen
 basis sollte jquery und die jquery UI sein
 und dann einige jquery plugins
 
-wenn es nicht klappt, dann fuer die kabine noch das bewaehrte YUI script. 
+wenn es nicht klappt, dann fuer die kabine noch das bewaehrte YUI script.
 das koennte ne zeitfrage sein
- 
+
 moeglichst auf xajax verzichten.
 moeglichst mit json bei ajax requests probieren und relativ viele dinge schon ins markup schreiben
 
@@ -20,7 +20,7 @@ moeglichst mit json bei ajax requests probieren und relativ viele dinge schon in
 
 
 
-global $option, $page, $uli; 
+global $option, $page, $uli;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,6 +37,9 @@ global $option, $page, $uli;
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?PHP echo $option['uliroot']?>/theme/jquery/js/jquery-ui-1.8.13.custom.min.js"></script>
+<script src="<?PHP echo $option['uliroot']?>/theme/jquery/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="<?PHP echo $option['uliroot']?>/theme/jquery/jquery-ui-1.11.4/jquery.ui.touch-punch.min.js"></script>
+
 <script type="text/javascript" src="<?PHP echo $option['uliroot']?>/theme/jquery/autoNumeric-master/autoNumeric-min.js"></script>
 
 
@@ -48,7 +51,7 @@ global $option, $page, $uli;
 <!-- dynamische stylesheets -->
 <!--  die koennten eigentlich auch ueber jquery zugewiesen werden? -->
 <style type="text/css">
-#page {background: url("<?php echo $option['uliroot'].'/theme/graphics/bg/'.$page['sub'].'.jpg';?>");} 
+#page {background: url("<?php echo $option['uliroot'].'/theme/graphics/bg/'.$page['sub'].'.jpg';?>");}
 </style>
 
 <script>
@@ -93,4 +96,3 @@ $('a.playerinfo, .playerinfo').live('click', function() {
 
 <div id="content">
 <div id="playerinfo" title="Spielerinfo" style="display:none;"></div>
-	
