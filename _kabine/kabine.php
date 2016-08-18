@@ -1,24 +1,24 @@
 <?php
 /*
- * Mannschaftsaufstellung 
+ * Mannschaftsaufstellung
  * 08.07.09
- * 
- * 
+ *
+ *
  * 21.09.2010
- * 
- * Was soll sich Šndern
- * 
- * Stats fŸr die Spieler
+ *
+ * Was soll sich ï¿½ndern
+ *
+ * Stats fï¿½r die Spieler
  * - vor allem Verein und Punkte in den letzten Spielen
  * - Zufriedenheit
  * - die neue supergeile trikotnummer muss auch zu sehen sein
- * 
+ *
  * die rueckennummer einbauen (sowohl in der aufstellung als auch auf der tribuene)
  * und auf klick auf die nummer kommen die infos
- * 
+ *
  * Co-Trainer (* optional) - stellt auf jeder Position die Punktbesten auf
- * 
- * 
+ *
+ *
  * TODO
  * Die Spielre auf dem Feld muessen auch bewegt werden koennen
  * Info Button
@@ -27,8 +27,8 @@
  * Systeme
  * Bank muss befuellt werden koennen
  * Kapitaen
- * 
- * 
+ *
+ *
  */
 require_once('../../wp-load.php' );
 require_once(ABSPATH.'/uli/_mainlibs/setup.php');
@@ -73,10 +73,10 @@ $(document).ready(function(){
 					type: "POST", url: "ajax_kabine.php", data: "action=changeformation&formation=" + formation,
 					complete: function(data){
 					$("#container").html(data.responseText);
-			    	location.reload();   
+			    	location.reload();
 					}
 				});
-		});	
+		});
 
 
 
@@ -87,7 +87,7 @@ $(document).ready(function(){
 </script>
 
 <script>
-$('.captain').live('click', function() {
+$( "div" ).on( "click", ".captain", function() {
 	var slotid = this.id;
 	$.ajax({
 		type: "POST", url: "ajax_kabine.php", data: "action=changecaptain&slotid="+slotid,
@@ -100,7 +100,7 @@ $('.captain').live('click', function() {
 
 
 <script>
-$('.player_kabine').live('click', function() {
+$( "div" ).on( "click", ".player_kabine", function() {
 	var playerID = this.id;
 	$.ajax({
 		type: "POST", url: "<?php echo $option['uliroot']; ?>/_mainlibs/ajax_global.php", data: "action=printplayerinfo&playerID="+playerID,
@@ -109,10 +109,11 @@ $('.player_kabine').live('click', function() {
 		}
 	 });
 	});
+
 </script>
 
 <script>
-$('.player_field').live('click', function() {
+$( "div" ).on( "click", ".player_field", function() {
 	var playerID = this.id;
 	$.ajax({
 		type: "POST", url: "<?php echo $option['uliroot']; ?>/_mainlibs/ajax_global.php", data: "action=printplayerinfo&playerID="+playerID,
@@ -123,10 +124,10 @@ $('.player_field').live('click', function() {
 	});
 </script>
 
-<?php 	
-	
-	
-	
+<?php
+
+
+
 read_styles_ajax($formation);
 //print_script_kabine($formation);
 
@@ -136,7 +137,7 @@ echo '<div id="workarea">';
 echo "\n";
 	echo '<div id ="spielfeld">';
 		echo "\n";
-		print_slots($formation);	
+		print_slots($formation);
 		echo fill_slots($formation);
 		echo "\n";
 	echo '</div>';
@@ -145,9 +146,9 @@ echo "\n";
 		echo "\n";
 		echo '<div class="player_kabine" style="color: #fff;"><b>'.YourTeam.'</b></div>';
 		echo "\n";
-		echo print_kader_kabine($uliID);		
+		echo print_kader_kabine($uliID);
 		echo "\n";
-		//echo '<div class="player_kabine" id="captain">Kapitano</div>';	
+		//echo '<div class="player_kabine" id="captain">Kapitano</div>';
 		echo "\n";
 	echo '</div>';
 	echo "\n";
@@ -158,10 +159,10 @@ echo "\n";
 		echo '<div id="container">';
 		echo print_kabine_info_box();
 		echo '</div>';
-	
+
 	echo '</div>';
 	echo "\n";
-echo '</div>'; 
+echo '</div>';
 /* Footer */
 uli_footer();
 ?>

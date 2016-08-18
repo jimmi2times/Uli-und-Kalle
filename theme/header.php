@@ -28,20 +28,28 @@ global $option, $page, $uli;
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 <title>Das Uli und Kalle Chefauskennerb&uuml;ro - <?php echo $page['name']; ?></title>
 
-
+<?
+//print_r($page);
+?>
 
 <!-- jquery -->
 <link type="text/css" href="<?PHP echo $option['uliroot']?>/theme/jquery/css/smoothness/jquery-ui-1.8.13.custom.css" rel="Stylesheet" />
 
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="<?PHP echo $option['uliroot']?>/theme/jquery/js/jquery-ui-1.8.13.custom.min.js"></script>
+<?
+// Nur auf der Kabine wird etwas anderes geladen, damit die Mannschaftsaufstellung auch mobil geht
+if ($page['main'] == "kabine"){
+?>
+<script src="<?PHP echo $option['uliroot']?>/theme/js/jquery-2.1.0.min.js"></script>
 <script src="<?PHP echo $option['uliroot']?>/theme/jquery/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <script src="<?PHP echo $option['uliroot']?>/theme/jquery/jquery-ui-1.11.4/jquery.ui.touch-punch.min.js"></script>
 
+<?
+} else {
+?>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?PHP echo $option['uliroot']?>/theme/jquery/js/jquery-ui-1.8.13.custom.min.js"></script>
 <script type="text/javascript" src="<?PHP echo $option['uliroot']?>/theme/jquery/autoNumeric-master/autoNumeric-min.js"></script>
-
+<? } ?>
 
 
 
