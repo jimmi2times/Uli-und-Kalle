@@ -53,7 +53,7 @@ function print_mailbox($uliID, $view = '', $chefMessage = ''){
 			$html .= '</div>';
 			$html .= '<div class="messagecontent" id="messagecontent-'.$message['ID'].'">';
 			$html .= '<div class="text">';
-			$html .= $message['text'];
+			$html .= str_replace('\"', '"',$message['text']);
 			$html .= '</div>';
 			$html .= '<div class="func">';
 
@@ -118,7 +118,7 @@ function get_message($ID){
 
 
 
-function print_form_new_message($message = NULL, $adminmessage){
+function print_form_new_message($message = NULL, $adminmessage = ''){
 	global $option;
 	$uliID = $option['uliID'];
 	if ($adminmessage == TRUE) {
