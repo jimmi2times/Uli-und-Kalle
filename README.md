@@ -17,3 +17,8 @@ Todos und Changelog
 
 4 Logos neue Vereine
 ===> 17.8. done
+
+5 Was ich beim Stadionausbau nicht verstehe: Baut man mehr Imbissbuden und mehr Shops, dann erhöht sich der Ertrag bei steigenden Zuschauerzahlen (Stadionausbau) nicht, sondern stagniert. Das finde ich schade, weil es kontraintuitiv gehandhabt wird. Vielleicht kannst Du das zur nächsten Saison ändern?
+
+6 ZUFRIEDENHEIT zurücksetzen
+hatte dir vor ein paar Wochen schon mal geschrieben. Ich wollte fragen, ob vor der Saison nochmal alle Spieler wieder glücklich werden? Ist jetzt aber vielleicht schon zu spät?!

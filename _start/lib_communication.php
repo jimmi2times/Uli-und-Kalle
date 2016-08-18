@@ -163,7 +163,6 @@ function print_form_new_message($message = NULL, $adminmessage = ''){
 		$html	.=	'<br/>';
 		$html	.=	'<br/>';
 		$html	.=	'<textarea cols = 40 rows = 5 name="text">'.$text.'</textarea>';
-
 		$html .= '<input type="hidden" name = "sender" value="'.$uliID.'">';
 		$html .= '<input type="submit" value="Nachricht senden">';
 		$html .='</form>';
