@@ -13,16 +13,22 @@ include('lang_start.php');
 /*
  * zeigt den Posteingang an
  */
-function print_mailbox($uliID, $view = ''){
+function print_mailbox($uliID, $view = '', $chefMessage = ''){
 	global $option;
 
 	$messages = get_messages($uliID, $view);
 
 
 	// Es werden alle Ulinamen eingelesen
-	$uliname = get_all_uli_names($option['leagueID']);
+	if ($uliID == 2){
+		$uliname = get_all_uli_names();
+	} else {
+		$uliname = get_all_uli_names($option['leagueID']);
+	}
 	$uliname[0] = SystemMessage;
-	
+	$uliname[2] = "Chef";
+
+
 	if ($messages){
 		foreach ($messages as $message){
 			$style = '';
@@ -70,6 +76,8 @@ function print_mailbox($uliID, $view = ''){
 	//uli_tabelle_end();
 
 
+
+
 	return $html;
 }
 
@@ -110,12 +118,18 @@ function get_message($ID){
 
 
 
-function print_form_new_message($message = NULL){
+function print_form_new_message($message = NULL, $adminmessage){
 	global $option;
 	$uliID = $option['uliID'];
+	if ($adminmessage == TRUE) {
+		$uliID = 2;
+	}
 	$leagueID = $option['leagueID'];
-	$league_members = get_ulis($leagueID);
-
+	if ($uliID == 2){
+		$league_members = get_ulis();
+	} else {
+		$league_members = get_ulis($leagueID);
+	}
 	// Wenn vorhanden, die alte Message auswerten
 	if ($message){
 		$text = "//".OldMessage.": ".uli_date($message['time'])."\n".str_replace("<br />", "\n", $message['text']);
@@ -125,7 +139,14 @@ function print_form_new_message($message = NULL){
 	$html 	.=	'<form action = "?action=send" method = "POST">';
 	$html	.=	'<select name="receiver">';
 	$html 	.=	'<option value="">Empf&auml;nger ausw&auml;hlen</option>';
-	$html 	.=	'<option value="1">Rundschreiben</option>';
+	$html 	.=	'<option value="1">RUNDSCHREIBEN</option>';
+	$html 	.=	'<option value="2" ';
+	if ($message['sender'] == 2){$html .= 'selected = "selected"';};
+	$html .= '>NACHRICHT AN DEN CHEF</option>';
+
+	if ($uliID == 15){
+		$html 	.=	'<option value="3">RUNDSCHREIBEN AN ALLE</option>';
+	}
 
 	if ($league_members){
 		foreach ($league_members as $league_member){

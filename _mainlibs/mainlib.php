@@ -39,8 +39,10 @@ function get_uli($ID) {
  * holt Manager einer Liga
  * 28.05.09
  */
-function get_ulis($leagueID) {
-	$cond[] = array("col" => "leagueID", "value" => $leagueID);
+function get_ulis($leagueID = '') {
+	if ($leagueID){
+		$cond[] = array("col" => "leagueID", "value" => $leagueID);
+	}
 	$result = uli_get_results('uli', $cond);
 	if ($result){return $result;}
 	else {return FALSE;}
@@ -461,7 +463,7 @@ function uli_insert_record($table, array $values = NULL, $sql=''){
 		$valueFieldsArray = array();
 		$valueValuesArray = array();
 		foreach($values as $value) {
-			$thisValues[$value['col']] = $value['value'];			
+			$thisValues[$value['col']] = $value['value'];
 			$valueFieldsArray[] = '`'.$value['col'].'`';
 			$valueValuesArray[] = '\''.$value['value'].'\'';
 		}
@@ -469,7 +471,7 @@ function uli_insert_record($table, array $values = NULL, $sql=''){
 		$valueValuesQuery = " VALUES (".implode(", ", $valueValuesArray).")";
 	}
 	/* Debugg. */
-	$debug = isset($_REQUEST['debug']) ? $_REQUEST['debug'] : null;	
+	$debug = isset($_REQUEST['debug']) ? $_REQUEST['debug'] : null;
 	if ($debug == "insert"){global $user_ID;if ($user_ID == 1){echo $sql;}}
 
 	if ($wpdb->insert($table, $thisValues)){

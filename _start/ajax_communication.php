@@ -17,13 +17,14 @@ if ($_POST['action'] == "delete"){
 	$html .= '<script>';
 	$html .= '$(".message-'.$id.'").hide();';
 	$html .= '</script>';
-	echo $html; 
+	echo $html;
 }
 
 if ($_POST['action'] == "reply"){
 	$id = $_POST['id'];
 	$message = get_message($id);
-	$html = print_form_new_message($message);
+	if ($message['receiver'] == 2){$adminmessage = TRUE;} else {$adminmessage = false;}
+	$html = print_form_new_message($message, $adminmessage);
 	echo $html;
 }
 

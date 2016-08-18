@@ -14,7 +14,7 @@ $view = $_REQUEST['view'];
 $page = array("main" => "start", "sub" => "communicator", "name" => "Communicator");
 uli_header(array('lib_communication'));
 
-// ueberprüfen und Schreiben der Nachricht.
+// ueberprï¿½fen und Schreiben der Nachricht.
 if ($action == "send"){
 	$form = $_POST;
 	$form['time'] = mktime();
@@ -48,13 +48,35 @@ if ($action == "send"){
 			}
 		}
 	}
+	// Rundschreiben an alle // Kann nur Robert
+	if ($form['receiver'] == 3){
+		$form['subject'] = '[Rundschreiben] '.$form['subject'];
+		$form['sender'] = 2;
+		$league_members = get_ulis();
+		if ($league_members){
+			foreach($league_members as $league_member){
+				if ($league_member['ID'] != $form['sender']){
+					$form['receiver'] = $league_member['ID'];
+					$form['del_sender'] = 1;
+					$form['del_receiver'] = 0;
+					write_message($form);
+				}
+				else {
+					$form['receiver'] = $league_member['ID'];
+					$form['del_sender'] = 0;
+					$form['del_receiver'] = 1;
+					write_message($form);
+				}
+			}
+		}
+	}
 }
 
 
 ?>
 <script>
 $(document).ready(function(){
-	
+
 	$(".message").click(
 		    function() {
 			    $(".messagecontent").hide();
@@ -66,8 +88,8 @@ $(document).ready(function(){
 					$("#hiddencontainer").html(data.responseText);
 					}
 				 });
-			    
-		});	
+
+		});
 
 	$(".delete").click(
 		    function() {
@@ -76,8 +98,8 @@ $(document).ready(function(){
 					complete: function(data){
 					$("#hiddencontainer").html(data.responseText);
 					}
-				 });				
-		});	
+				 });
+		});
 	$(".reply").click(
 		    function() {
 				$.ajax({
@@ -85,10 +107,10 @@ $(document).ready(function(){
 					complete: function(data){
 					$("#container").html(data.responseText);
 					}
-				 });			
+				 });
 				 $("#container").dialog();
-						 	
-		});	
+
+		});
 
 	$(".newmessage").click(
 		    function() {
@@ -97,10 +119,10 @@ $(document).ready(function(){
 					complete: function(data){
 					$("#container").html(data.responseText);
 					}
-				 });			
+				 });
 				 $("#container").dialog();
-						 	
-		});	
+
+		});
 
 });
 </script>
@@ -119,7 +141,7 @@ echo uli_box(HeadlineCommunicator, InfoTextCommunicate);
 echo "\n";
 $menubox = '<a href="?">'.Inbox.'</a><br />
 <a href="#" class="newmessage">'.WriteMessage.'</a><br />
-<a href="?view=sent">'.SentBox.'</a><br />';	
+<a href="?view=sent">'.SentBox.'</a><br />';
 
 echo uli_box(Menu, $menubox);
 echo "\n";
@@ -131,7 +153,16 @@ echo '<div class="RightColumnLarge">';
 echo "\n";
 echo '<div id="communicate">';
 echo "\n";
+if ($uliID == 15){
+	echo '<h3>Mails an den Chef</h3>';
+	echo print_mailbox(2, $view);
+	echo '<h3>Mails an Helsinki IF</h3>';
+}
+
+
 echo print_mailbox($uliID, $view);
+
+
 echo '</div>';
 echo "\n";
 echo '</div>';
