@@ -22,3 +22,5 @@ Todos und Changelog
 
 6 ZUFRIEDENHEIT zurücksetzen
 hatte dir vor ein paar Wochen schon mal geschrieben. Ich wollte fragen, ob vor der Saison nochmal alle Spieler wieder glücklich werden? Ist jetzt aber vielleicht schon zu spät?!
+
+7 TouchLibrary wie bei Ich, Jogi für die Mannschaftsaufstellung
