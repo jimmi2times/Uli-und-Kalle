@@ -4,6 +4,12 @@ currently live
 
 Todos und Changelog
 
+9 gelöschte Teams rückstandsfrei löschen
+
+8 Beschränkung für Kadergrößen
+- Gehaltswünsche gehen absurd in die Höhe ab 35
+- Cut bei 50
+
 7 TouchLibrary wie bei Ich, Jogi für die Mannschaftsaufstellung
 ==> jquery live durch on ersetzen in kabine.php (für info und Kapitän)
 ==> Weiche im Header ist bereit.
