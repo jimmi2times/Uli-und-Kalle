@@ -5,6 +5,8 @@ currently live
 Todos und Changelog
 
 9 gelöschte Teams rückstandsfrei löschen
+- GhostData FC Loewi
+- Alacantara, Kagawa
 
 8 Beschränkung für Kadergrößen
 - Gehaltswünsche gehen absurd in die Höhe ab 35
