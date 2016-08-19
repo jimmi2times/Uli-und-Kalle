@@ -54,7 +54,7 @@ if (!$_POST['action']){
 	if ($player['injury']){
 		$newHtml .= ' '.get_injury_pic($player['injury_cause'].' (letztes Update: '.uli_date($player['injury_update']).')').' ';
 	}
-	$newHtml .= '</span>';	
+	$newHtml .= '</span>';
 	$newHtml .= '<b>'.$player['name'].'</b> ';
 	$newHtml .= $option['position'.$player['hp'].'-2'].' ';
 	if ($player['np1']){$newHtml .= ''.$option['position'.$player['np1'].'-2'].' ';}
@@ -160,8 +160,8 @@ if ($_POST['action'] == "changecaptain"){
 	if ($oldPlayer['playerID'] != 0){
 		// neuen Captain schreiben
 		save_player_ajax($uliID, $year, 0, 15, $oldPlayer['playerID']);
-		// jQuery alten KapitŠn Klasse aendern
-		// jQuery neuer KapitŠn Klasse aendern
+		// jQuery alten Kapitï¿½n Klasse aendern
+		// jQuery neuer Kapitï¿½n Klasse aendern
 
 
 		$html .= '<script>';

@@ -40,6 +40,7 @@ uli_header(array('lib_kabine'));
 global $option;
 $uliID = $option['uliID'];
 
+//print_R($_POST);
 
 /* Aktionen */
 $action = $_REQUEST['action'];strip_tags($action);
@@ -59,8 +60,12 @@ check_userteam_basic();
 // holt die Formation
 // wenn keine formation gesetzt ist, gilt 4-4-2
 $formation= get_userformation(0, $uliID, $option['currentyear']);
+
+//echo $formation;
 if (!$formation)
 	{$formation = "442"; save_formation($formation, $uliID, 0, $option['currentyear']);}
+
+//print_r($option);
 
 ?>
 
@@ -68,7 +73,9 @@ if (!$formation)
 $(document).ready(function(){
 	$("#formation").change(
 		    function() {
-		    	var formation = $('#formation').attr("value");
+					//alert('hu');
+		    	var formation = $('#formation').prop("value");
+					//alert(formation);
 				$.ajax({
 					type: "POST", url: "ajax_kabine.php", data: "action=changeformation&formation=" + formation,
 					complete: function(data){
