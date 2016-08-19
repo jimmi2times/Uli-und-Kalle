@@ -372,7 +372,7 @@ if ($action == "checksmiles"){
 					unset ($value);
 					//echo $playerID;
 
-					echo update_smile($playerID, $league['ID'], NULL, 50, 22, $option['currentyear']);
+					echo update_smile($playerID, $league['ID'], NULL, 50, 1, $option['currentyear']);
 					}
 				}
 			}
