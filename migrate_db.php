@@ -8,7 +8,7 @@
 
 
 // TODO
-// †berall die leagueIDs reparieren
+// ï¿½berall die leagueIDs reparieren
 
 
 require_once('../wp-load.php' );
@@ -22,7 +22,7 @@ global $wpdb;
 
 // Nur einmal
 $sql = "UPDATE  `tip_uli_player_league` SET smile = 50 ";
-if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';} 
+if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';}
 else {echo 'NO SUCCESS: '.$sql.'<br/>';}
 
 
@@ -36,7 +36,7 @@ CREATE TABLE  `tip_uli_stadium_seats` (
 `built` INT NOT NULL ,
 PRIMARY KEY (  `id` )
 ) ENGINE = MYISAM ;";
-if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';} 
+if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';}
 else {echo 'NO SUCCESS: '.$sql.'<br/>';}
 
 
@@ -51,13 +51,13 @@ CREATE TABLE  `tip_uli_stadium_infra` (
 `built` INT NOT NULL ,
 PRIMARY KEY (  `id` )
 ) ENGINE = MYISAM ;";
-if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';} 
+if ($wpdb->query($sql)){echo 'SUCCESS: '.$sql.'<br/>';}
 else {echo 'NO SUCCESS: '.$sql.'<br/>';}
 
 
 
 
-// Geht immer 
+// Geht immer
 
 
 
