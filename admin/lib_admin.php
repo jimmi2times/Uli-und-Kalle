@@ -172,17 +172,53 @@ function calculate_smile($round){
 	$leagues = get_leagues();
 	if ($leagues){
 		foreach ($leagues as $league){
-
+			echo $league['ID'].'  LIIIIIIIIGA'.'<br><br>';
+			$allsmiles = 0;
 			$cond = array();
+			$order = array();
 			$cond[] = array("col" => "round", "value" => $round);
 			$cond[] = array("col" => "year", "value" => $option['currentyear']);
 			$order[] = array("col" => "playerID", "sort" => "ASC");
 			$players = uli_get_results("player_points", $cond, NULL, $order);
 			$order[] = array("col" => "number", "sort" => "ASC");
+			// In Userteams gibt es keine leagueID
+			// Deswegen muss das hier etwas komplizierter gelöst werden
+			$ulis = get_ulis($league['ID']);
+			$leagueUlis = array();
+			if ($ulis) {
+				foreach($ulis as $uli){
+					$leagueUlis[] = $uli['ID'];
+				}
+			}
+			echo $value = "(".implode($leagueUlis, ",").")";
+			$cond[] = array("col" => "uliID", "value" => $value, "func" => "IN");
 			$userplayer = uli_get_results("userteams", $cond, NULL, $order);
 
+//print_r($userplayer);
+
+			$thisuserplayer = array();
 			if ($userplayer){
 				foreach ($userplayer as $thisplayer){
+					// Sicherheitshalber überprüfen, ob es für diesen Spieler in dieser Liga einen Smile eintrag gibt
+					// Damit müssten nach jeder auswertung alle Spieler einen haben
+					$cond = array();
+					$cond[] = array("col" => "playerID", "value" => $thisplayer['playerID']);
+					$cond[] = array("col" => "leagueID", "value" => $league['ID']);
+					$cond[] = array("col" => "active", "value" => 1);
+					$check = uli_get_row("player_league_smile", $cond);
+					if (!$check){
+						$values = array();
+						$values[] = array("col" => "playerID", "value" => $thisplayer['playerID']);
+						$values[] = array("col" => "active", "value" => 1);
+						$values[] = array("col" => "leagueID", "value" => $league['ID']);
+						$values[] = array("col" => "smile", "value" => 50);
+						$values[] = array("col" => "uliID", "value" => $thisplayer['uliID']);
+
+						$values[] = array("col" => "round", "value" => 0);
+						$values[] = array("col" => "year", "value" => $option['currentyear']);
+						$values[] = array("col" => "timestamp", "value" => mktime());
+						$id = uli_insert_record("player_league_smile", $values);
+					}
 					$thisuserplayer[$thisplayer['playerID']] = $thisplayer;
 				}
 			}
@@ -192,9 +228,11 @@ function calculate_smile($round){
 					$score = $player['score'];
 					$number = $thisuserplayer[$player['playerID']]['number'];
 					$points = $thisuserplayer[$player['playerID']]['points'];
+					$uliID = $thisuserplayer[$player['playerID']]['uliID'];
+
 					if ($score > 5){
 						if ($number == 15){
-							$smile = rand(5, 15);
+							$smile = rand(2, 10);
 						}
 						elseif ($number < 12 AND $number > 0){
 							$smile = rand(1, 6);
@@ -206,7 +244,7 @@ function calculate_smile($round){
 							$smile = rand(-15, -5);
 						}
 					}
-					elseif ($score > 0){
+					elseif ($score > 1){
 						if ($number == 15){
 							$smile = rand(1, 6);
 						}
@@ -234,13 +272,15 @@ function calculate_smile($round){
 							$smile = rand(-3, 1);
 						}
 					}
+					if ($uliID){
 					update_smile($player['playerID'], $league['ID'], $smile, NULL, $round, $option['currentyear']);
 					$allsmiles = $allsmiles + $smile;
-					echo $player['playerID'].' - '.$score.' - '.$points.' - '.$number.' - SMILE: '.$smile;
+					echo $player['playerID'].' - '.$score.' - '.$points.' - '.$uliID.'('.$number.') - SMILE: '.$smile;
 					echo '<br/>';
+					}
 				}
 			}
-			echo 'Saldo: '.$allsmiles;
+			echo 'Saldo: '.$allsmiles.'<br>';
 		}
 	}
 

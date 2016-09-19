@@ -147,9 +147,19 @@ function get_player_infos($playerID, $leagueID = '', $items = array()) {
 	$cond[] = array("col" => "active", "value" => 1);
 	$cond[] = array("col" => "leagueID", "value" => $leagueID);
 	$player['smile'] = uli_get_var("player_league_smile", $cond, "smile");
-
-	//print_r($player);
-
+	// Bugfix, wenn es keinen Eintrag gibt, wird er angelegt
+	if (!$player['smile']){
+		$player['smile'] = 50;
+		$values[] = array("col" => "playerID", "value" => $playerID);
+		$values[] = array("col" => "active", "value" => 1);
+		$values[] = array("col" => "leagueID", "value" => $leagueID);
+		$values[] = array("col" => "uliID", "value" => $player['uliID']);
+		$values[] = array("col" => "smile", "value" => 50);
+		$values[] = array("col" => "round", "value" => 0);
+		$values[] = array("col" => "year", "value" => $option['currentyear']);
+		$values[] = array("col" => "timestamp", "value" => mktime());
+		$id = uli_insert_record("player_league_smile", $values);
+	}
 
 	// injurycheck
 	$cond = array();
@@ -1237,6 +1247,9 @@ function get_further_infos($player){
  */
 function update_smile($playerID, $leagueID, $diff = '', $value='', $round = '', $year = ''){
 	//global $option;
+	if (!$round) {
+		$round = 0;
+	}
 
 	$playerinfo = get_player_infos($playerID, $leagueID);
 	if (!$value){
