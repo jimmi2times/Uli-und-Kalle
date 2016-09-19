@@ -113,7 +113,7 @@ function trade_player($playerID, $leagueID = '', $auction = NULL, $contract = NU
 
 	$teamnames = get_all_team_names();
 
-	
+
 	// Die Admintrades werden rausgeloest, weil fuer potentiell alle Ligen
 	if ($admintrade){
 		// hier die globalen sachen
@@ -126,8 +126,8 @@ function trade_player($playerID, $leagueID = '', $auction = NULL, $contract = NU
 		if ($admintrade['externold']){
 			$transfer['externold'] = $admintrade['externold'];
 		}
-		
-		
+
+
 		if ($admintrade['externnew']){
 			$transfer['externnew'] = $admintrade['externnew'];
 			$newteam = 999;
@@ -169,8 +169,8 @@ function trade_player($playerID, $leagueID = '', $auction = NULL, $contract = NU
 				// Zufriedenheit wird zurueck gesetzt (auf 50)
 				//$playerleague['smile'] = 50;
 				update_smile($playerID, $league['ID'], NULL, 50, NULL, $option['currentyear']);
-				
-				
+
+
 				$playerleague['uliID'] = 0;
 				$playerleague['loyalty'] = 0;
 				$playerleague['status'] = 0;
@@ -216,7 +216,7 @@ function trade_player($playerID, $leagueID = '', $auction = NULL, $contract = NU
 				$transfer['ulinew'] = $auction['topbetuliID'];
 				$transfer['type'] = 1;
 				$transfer['externold'] = ''.$teamnames[$player['team']].' (Arbeitsamt)';
-				
+
 			}
 
 			if ($contract['endofcontract'] == 1){
@@ -261,14 +261,16 @@ function trade_player($playerID, $leagueID = '', $auction = NULL, $contract = NU
 				remove_player_from_userformation($transfer['playerID'],$transfer['uliold']);
 				//	Alten Vertrag als beendet erklaeren
 				end_contract($transfer['playerID'], $transfer['uliold']);
+				// Auktionen auf history 1 setzen
+				archive_auctions($transfer['playerID'], $transfer['leagueID']);
 				//	Geld an abgebenden Verein �berweisen
 				if ($transfer['sum'] > 0){
 					calculate_money(10, $transfer['sum'], $transfer['uliold'], 0, $option['currentyear'], 'add', 'income');
 					// TODO alle Gebote und laufenden Verhandlungen zuruecksetzen (negotiations)
 					// Erst machen, wenn diese Tabelle so bleiben soll
-					
+
 				}
-				// falls der typ auf der transferliste stand, muss 
+				// falls der typ auf der transferliste stand, muss
 			}
 
 			// Zufriedenheit wird zurueck gesetzt (auf 50)

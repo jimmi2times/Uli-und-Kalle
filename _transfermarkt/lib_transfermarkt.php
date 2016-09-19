@@ -2323,6 +2323,7 @@ function accept_offer($ID, $uliID){
 	$contract = $negotiation;
 	// Der Spieler wird verkauft
 	trade_player($contract['playerID'], $option['leagueID'], NULL, $contract);
+	// Eventuelle Auktionen werden auf 1 (history) gesetzt
 	$html .= PlayerSold;
 	return $html;
 }

@@ -100,7 +100,7 @@ if ($_REQUEST['short'] != 1 and $option['leagueID']){
 	if ($_REQUEST['debug'] == 1){
 		echo "checK";
 	}
-	
+
 	/* wenn ein Spieltag beginnt */
 	if (check_round_is_starting()){
 		// update nextround
@@ -137,8 +137,11 @@ function check_round_is_starting() {
 		'AND competition_id = '.$option['currentcompetition'].' ORDER by gametime asc LIMIT 1';
 	$nextgametime = $wpdb->get_var($sql);
 
+//echo '<br>'.mktime();
+
 	// nochmal checken aufm server, wegen utc und so.
-	if ((mktime() + 3600) > $nextgametime AND $option['nextday'] < 35){
+	if ((mktime() + 7200) > $nextgametime AND $option['nextday'] < 35){
+		//echo "true";
 		return TRUE;
 	}
 	return FALSE;
@@ -196,7 +199,7 @@ function write_userteams($round){
 				uli_update_record('userformation', $cond, $newentry);
 			}
 		}
-	}	
+	}
 }
 
 /**
@@ -206,7 +209,7 @@ function pay_salary($round){
 	global $option;
 	$cond[] = array("col" => "history", "value" => 0);
 	$fields = array('SUM(salary), uliID');
-	$result = uli_get_results('player_contracts', $cond, $fields, NULL, NULL, 'Group by uliID');	
+	$result = uli_get_results('player_contracts', $cond, $fields, NULL, NULL, 'Group by uliID');
 	if ($result){
 		foreach($result as $result){
 			calculate_money(1, $result['SUM(salary)'], $result['uliID'], $round, $option['currentyear'], $action='new', $type='outgoings');
@@ -220,7 +223,7 @@ function pay_salary($round){
 function pay_dispo($round){
 	global $option;
 	$cond[] = array("col" => "type", "value" => 14);
-	$result = uli_get_results('finances', $cond);	
+	$result = uli_get_results('finances', $cond);
 	if ($result){
 		foreach($result as $result){
 			if ($result['sum'] < 0){
