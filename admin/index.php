@@ -431,8 +431,27 @@ if ($action == "checkuli"){
 
 }
 
+// Vorstufe vom Verein löschen, wenn es geht, kommt es dann in das richtige rein
+if ($action == "sellteams"){
+	$uliID = $_REQUEST['uliID'];
+	$uli = get_uli($uliID);
+	// Alle Verträge auf Ende = 0 setzen
 
+echo $uliID;
 
+	$cond[] = array("col" => "uliID", "value" => $uliID);
+	$cond[] = array("col" => "history", "value" => 0);
+	$values[] = array("col" => "end", "value" => (time()-10000));
+	uli_update_record('player_contracts', $cond, $values);
+
+	check_contracts();
+	check_contracts();
+	check_contracts();
+	check_contracts();
+
+	$cond = array();
+
+}
 
 
 if ($action == "deleteuli"){
@@ -441,6 +460,10 @@ if ($action == "deleteuli"){
 	$uli = get_uli($uliID);
 
 	echo '<h1>DELETE</h1>';
+
+
+
+
 
 	// Was muss gelöscht werden
  	$cond[] = array("col" => "uliID", "value" => $uliID);
